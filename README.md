@@ -15,9 +15,9 @@ D.	How many bytes of the record, starting from the first position, are considere
 If the output file exists, overwrite it.  Do not ask.  Build the index by starting with a blank structure and inserting new keys.  There may be duplicate keys in the input file.  Your program should list them and the line number of the input file on which they occur.  Duplicates should not be inserted into the B+ tree.  The command line is:
 
  INDEX -create <input file> <output file> <key size>
-For example: INDEX -create CS6360Asg5Data.txt CS6360Asg5.indx 15
+For example: INDEX -create TestData.txt MyIndex.indx 15
 --Creates an index with a key length of 15 bytes.  
-INDEX –create CS6360Asg5Data.txt CS6360Asg5.indx 21
+INDEX –create TestData.txt MyIndex.indx 21
 --Creates an index with a key length of 21 bytes.  
 
 2. Find a record by key. This displays the entire record, including the key, and gives its position, in bytes, within the file.  If the key is not in your index, the program must give a message to that effect.  As you can guess, the reason for having the name of the text file in your B+ tree index is so you can find it for this and the subsequent command.  The command line is:
@@ -45,5 +45,3 @@ This command line would return success:
 
 4. List sequential records.  The program must show the record containing the given key and the next n records following it, if there are that many.  If no record exists with the given key, show records that contain the next-larger key and give a message that the actual key was not found.  As with the -find function, show the records in order by key and their position within the text file.  Obviously this must traverse the tree in key order, which is trivial if your B+ tree is correct.  Here is the command line:
   INDEX -list <index filename> <starting key> <count>
-Hint: It really helps to have a hex file dump utility when you're working on something like this, since the file you create is not all text.
-Also on eLearning is a script you can use for testing your program.  If it runs correctly with the script and does not crash, and your program follows the other requirements, you’re assured of at least an 80.  (My apologies for the nature of the data, but those are actual codes and medical procedures from a publicly-available source.)
